@@ -85,6 +85,6 @@ gulp.task('push', function () {
     });
 });
 
-gulp.task('git', gulp.parallel('add', 'commit', 'push'));
+gulp.task('git', gulp.series('add', 'commit', 'push'));
 
 gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
