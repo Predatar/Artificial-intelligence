@@ -36,6 +36,7 @@ gulp.task('watch', function () {
     gulp.watch("src/fonts/**/*").on('all', gulp.parallel('fonts'));
     gulp.watch("src/icons/**/*").on('all', gulp.parallel('icons'));
     gulp.watch("src/img/**/*").on('all', gulp.parallel('images'));
+    gulp.watch("dist").on('change', gulp.parallel('add', 'commit', 'push'));
 });
 
 gulp.task('html', function () {
@@ -76,7 +77,7 @@ gulp.task('add', function () {
 
 gulp.task('commit', function () {
     return gulp.src('./git-test/*')
-        .pipe(git.commit(['initial commit', 'additional message']));
+        .pipe(git.commit('initial commit'));
 });
 
 gulp.task('push', function () {
