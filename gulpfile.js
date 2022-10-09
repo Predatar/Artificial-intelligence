@@ -36,7 +36,6 @@ gulp.task('watch', function () {
     gulp.watch("src/fonts/**/*").on('all', gulp.parallel('fonts'));
     gulp.watch("src/icons/**/*").on('all', gulp.parallel('icons'));
     gulp.watch("src/img/**/*").on('all', gulp.parallel('images'));
-    gulp.watch("dist").on('change', gulp.parallel('add', 'commit', 'push'));
 });
 
 gulp.task('html', function () {
@@ -85,5 +84,7 @@ gulp.task('push', function () {
         if (err) throw err;
     });
 });
+
+gulp.task('git', gulp.parallel('add', 'commit', 'push'));
 
 gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
