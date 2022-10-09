@@ -76,7 +76,7 @@ gulp.task('add', function () {
 
 gulp.task('commit', function () {
     return gulp.src('./git-test/*')
-        .pipe(git.commit('initial commit'));
+        .pipe(git.commit(['initial commit', 'additional message']));
 });
 
 gulp.task('push', function () {
