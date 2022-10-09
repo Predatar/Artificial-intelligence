@@ -80,7 +80,7 @@ gulp.task('commit', function () {
 });
 
 gulp.task('push', function () {
-    git.push('origin', function (err) {
+    return git.push('origin', function (err) {
         if (err) throw err;
     });
 });
