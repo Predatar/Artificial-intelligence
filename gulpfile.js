@@ -6,6 +6,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const rename = require("gulp-rename");
 const imagemin = require('gulp-imagemin');
 const htmlmin = require('gulp-htmlmin');
+const git = require('gulp-git');
 
 gulp.task('server', function () {
 
@@ -66,6 +67,22 @@ gulp.task('images', function () {
         .pipe(imagemin())
         .pipe(gulp.dest("dist/img"))
         .pipe(browserSync.stream());
+});
+
+gulp.task('add', function () {
+    return gulp.src('./')
+        .pipe(git.add());
+});
+
+gulp.task('commit', function () {
+    return gulp.src('./git-test/*')
+        .pipe(git.commit('initial commit'));
+});
+
+gulp.task('push', function () {
+    git.push('origin', function (err) {
+        if (err) throw err;
+    });
 });
 
 gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
