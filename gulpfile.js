@@ -83,7 +83,6 @@ gulp.task('push', function () {
     git.push('origin', function (err) {
         if (err) throw err;
     });
-    return 0;
 });
 
 gulp.task('git', gulp.series('add', 'commit', 'push'));
