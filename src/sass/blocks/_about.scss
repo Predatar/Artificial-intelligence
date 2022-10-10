@@ -1,0 +1,37 @@
+.about {
+   padding: 214px 0;
+   background-color: $third-color;
+
+   &__wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      img {
+         position: absolute;
+         right: 0;
+      }
+   }
+
+   &__descr {
+      width: 548px;
+   }
+
+   &__title {
+      width: 548px;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 130%;
+      color: #fff;
+   }
+
+   &__text {
+      width: 460px;
+      margin-top: 40px;
+      color: #ffffff;
+      opacity: 0.7;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 160%;
+   }
+}
